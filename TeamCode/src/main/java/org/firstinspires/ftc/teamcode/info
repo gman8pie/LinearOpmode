@@ -1,0 +1,6 @@
+OpMode: "operational mode"; instructions to customize behavior of robot
+TeleOp: "tele-operational"; controlled by remote device, in this case the Driver Station (DS)
+Autonomous: Controlled by pre-programmed tasks and artificial intelligence; no user-interaction involved
+Telemetry: Automated communication messages that convey status information to driver (speeds, sensor data, etc.)
+
+TODO: Rename devices to match rulebook
