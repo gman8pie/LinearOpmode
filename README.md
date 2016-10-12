@@ -27,6 +27,8 @@ Shivashriganesh Mahato<br>
 Aleks Vidmantas<br>
 Benjamin Kurtin<br>
 Christian BryantVonHeeder<br>
+Christopher Medlin<br>
+Daniel Abrikosov<br>
 Dustin Truong<br>
 Goirick Saha<br>
 Kaream Diani<br>
