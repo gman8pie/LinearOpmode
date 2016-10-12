@@ -24,13 +24,13 @@ git push origin master
 # Contributors
 Patrick Higgins<br>
 Shivashriganesh Mahato<br>
+Goirick Saha<br>
 Aleks Vidmantas<br>
 Benjamin Kurtin<br>
 Christian BryantVonHeeder<br>
 Christopher Medlin<br>
 Daniel Abrikosov<br>
 Dustin Truong<br>
-Goirick Saha<br>
 Kaream Diani<br>
 Kyyle Lam<br>
 Owen Engbretson<br>
