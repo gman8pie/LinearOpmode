@@ -38,14 +38,12 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.Range;
 
-import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
-
 /**
  * This file provides basic Telop driving for a Pushbot robot.
  * The code is structured as an Iterative OpMode
  * <p>
  * This OpMode uses the common Pushbot hardware class to define the devices on the robot.
- * All device access is managed through the HardwarePushbot class.
+ * All device access is managed through the HardwareTest class.
  * <p>
  * This particular OpMode executes a basic Tank Drive Teleop for a PushBot
  * It raises and lowers the claw using the Gampad Y and A buttons respectively.
@@ -55,12 +53,12 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@TeleOp(name = "Pushbot: Teleop Tank", group = "Pushbot")
+@TeleOp(name = "Pushbot: Test", group = "Pushbot")
 //@Disabled
 public class PushbotTeleopTank_Iterative extends OpMode {
 
     /* Declare OpMode members. */
-    private HardwarePushbot robot   = new HardwarePushbot(); // use the class created to define a Pushbot's hardware
+    private HardwareTest robot   = new HardwareTest(); // use the class created to define a Pushbot's hardware
     // could also use HardwarePushbotMatrix class.
     private double clawOffset       = 0.0;                   // Servo mid position
 
@@ -69,7 +67,7 @@ public class PushbotTeleopTank_Iterative extends OpMode {
      */
     @Override
     public void init() {
-        /* Initialize the hardware variables.
+        /* Initialize  the hardware variables.
          * The init() method of the hardware class does all the work here
          */
         robot.init(hardwareMap);
@@ -116,16 +114,16 @@ public class PushbotTeleopTank_Iterative extends OpMode {
 
         // Move both servos to new position.  Assume servos are mirror image of each other.
         clawOffset = Range.clip(clawOffset, -0.5, 0.5);
-        robot.leftClaw.setPosition(robot.MID_SERVO + clawOffset);
-        robot.rightClaw.setPosition(robot.MID_SERVO - clawOffset);
+//        robot.leftClaw.setPosition(robot.MID_SERVO + clawOffset);
+//        robot.rightClaw.setPosition(robot.MID_SERVO - clawOffset);
 
         // Use gamepad buttons to move the arm up (Y) and down (A)
-        if (gamepad1.y)
-            robot.armMotor.setPower(robot.ARM_UP_POWER);
-        else if (gamepad1.a)
-            robot.armMotor.setPower(robot.ARM_DOWN_POWER);
-        else
-            robot.armMotor.setPower(0.0);
+//        if (gamepad1.y)
+//            robot.armMotor.setPower(robot.ARM_UP_POWER);
+//        else if (gamepad1.a)
+//            robot.armMotor.setPower(robot.ARM_DOWN_POWER);
+//        else
+//            robot.armMotor.setPower(0.0);
 
         // Send telemetry message to signify robot running;
         telemetry.addData("claw", "Offset = %.2f", clawOffset);

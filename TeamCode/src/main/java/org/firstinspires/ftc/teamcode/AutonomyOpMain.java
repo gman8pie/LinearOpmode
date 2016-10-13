@@ -1,15 +1,14 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
-@Autonomous(name = "Autonomys: Main", group = "Autonomy")
-@Disabled
+@Autonomous(name = "Autonomy: Main", group = "Autonomy")
+//@Disabled
 // TODO: Enable
 public class AutonomyOpMain extends OpMode {
     // Define Pushbot hardware; should be changed to custom hardware configuration class in future
-    private HardwarePushbot robotHardware = new HardwarePushbot();
+    private HardwareTest robotHardware = new HardwareTest();
 
     /*
      Runs ONCE as autonomy is initialized
