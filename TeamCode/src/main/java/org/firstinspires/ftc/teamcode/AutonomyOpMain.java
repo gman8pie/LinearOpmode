@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
 @Autonomous(name = "Autonomy: Main", group = "Autonomy")
-//@Disabled
+@Disabled
 // TODO: Enable
 public class AutonomyOpMain extends OpMode {
     // Define Pushbot hardware; should be changed to custom hardware configuration class in future
@@ -30,6 +30,10 @@ public class AutonomyOpMain extends OpMode {
          speed changes, all the sensor data reading, all of it happens heres
          */
 
-        // robotHardware.leftMotor.setPower(1); TODO: Identify range of motor power and set accordinly
+//        If ultraSonicSensorDetectionDistance < 21 inches Then
+//            robot go backwards x inches
+//            turn 180deg in right direction
+//        End If
+        // robotHardware.leftMotor.setPower(0); TODO: Identify range of motor power and set accordinly
     }
 }
