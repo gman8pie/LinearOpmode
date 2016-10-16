@@ -28,6 +28,7 @@ public class HardwareTest
     // Declare components fields
     public DcMotor  leftMotor   = null;
     public DcMotor  rightMotor  = null;
+    public UltrasonicSensor frontSensor = null;
 //    public DcMotor  armMotor    = null;
 //    public Servo    leftClaw    = null;
 //    public Servo    rightClaw   = null;
@@ -58,6 +59,7 @@ public class HardwareTest
         // NOTE: names such as left_drive, left_arm, right_hand, etc. are configured on CS device
         leftMotor   = hwMap.dcMotor.get("left_drive");
         rightMotor  = hwMap.dcMotor.get("right_drive");
+        frontSensor = hwMap.ultrasonicSensor.get("front_sensor");
 //        armMotor    = hwMap.dcMotor.get("left_arm");
         leftMotor.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
         rightMotor.setDirection(DcMotor.Direction.REVERSE);// Set to FORWARD if using AndyMark motors

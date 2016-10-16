@@ -98,6 +98,7 @@ public class PushbotTeleopTank_Iterative extends OpMode {
     public void loop() {
         double left;
         double right;
+        double sensorLevel;
 
         // Run wheels in tank mode (note: The joystick goes negative when pushed forwards, so negate it)
         left = -gamepad1.left_stick_y;
@@ -126,7 +127,12 @@ public class PushbotTeleopTank_Iterative extends OpMode {
 //            robot.armMotor.setPower(0.0);
 
         // Send telemetry message to signify robot running;
-        telemetry.addData("claw", "Offset = %.2f", clawOffset);
+//        telemetry.addData("claw", "Offset = %.2f", clawOffset);
+
+        sensorLevel = robot.frontSensor.getUltrasonicLevel();
+
+        telemetry.addData("sensor", "%.5f", sensorLevel);
+        telemetry.addData("sensor status", robot.frontSensor.status())
         telemetry.addData("left", "%.2f", left);
         telemetry.addData("right", "%.2f", right);
         updateTelemetry(telemetry);
