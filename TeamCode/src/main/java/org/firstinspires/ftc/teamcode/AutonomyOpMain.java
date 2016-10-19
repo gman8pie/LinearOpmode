@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
 @Autonomous(name = "Autonomy: Main", group = "Autonomy")
@@ -30,10 +31,11 @@ public class AutonomyOpMain extends OpMode {
          speed changes, all the sensor data reading, all of it happens heres
          */
 
-//        If ultraSonicSensorDetectionDistance < 21 inches Then
-//            robot go backwards x inches
-//            turn 180deg in right direction
-//        End If
-        // robotHardware.leftMotor.setPower(0); TODO: Identify range of motor power and set accordinly
+        /*
+        If ultraSonicSensorDetectionDistance < 21 inches Then
+            robot go backwards x inches
+            turn 180deg in right direction
+        End If
+        */
     }
 }

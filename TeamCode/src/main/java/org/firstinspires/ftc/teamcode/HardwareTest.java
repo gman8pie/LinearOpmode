@@ -2,51 +2,42 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
-import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.hardware.OpticalDistanceSensor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 /**
  * This is NOT an opmode.
- *
+ * <p>
  * This class can be used to define all the specific hardware for a single robot.
  * In this case that robot is a Pushbot.
  * See PushbotTeleopTank_Iterative and others classes starting with "Pushbot" for usage examples.
- *
+ * <p>
  * This hardware class assumes the following device names have been configured on the robot:
  * Note:  All names are lower case and some have single spaces between words.
- *
+ * <p>
  * Motor channel:  Left  drive motor:        "left_drive"
  * Motor channel:  Right drive motor:        "right_drive"
  * Motor channel:  Manipulator drive motor:  "left_arm"
  * Servo channel:  Servo to open left claw:  "left_hand"
  * Servo channel:  Servo to open right claw: "right_hand"
  */
-public class HardwareTest
-{
+public class HardwareTest {
     /* Public OpMode members. */
 
     // Declare components fields
-    public DcMotor  leftMotor   = null;
-    public DcMotor  rightMotor  = null;
-    public UltrasonicSensor frontSensor = null;
-//    public DcMotor  armMotor    = null;
-//    public Servo    leftClaw    = null;
-//    public Servo    rightClaw   = null;
-
-    // Initialize constants to control component
-    public static final double MID_SERVO       =  0.5 ;
-    public static final double ARM_UP_POWER    =  0.45 ;
-    public static final double ARM_DOWN_POWER  = -0.45 ;
+    public DcMotor leftMotor = null;
+    public DcMotor rightMotor = null;
+    public OpticalDistanceSensor opticalDistanceSensor = null;
 
     /* local OpMode members. */
 
     // Map of hardware components (configured on robot controller device)
-    HardwareMap hwMap           =  null;
+    HardwareMap hwMap = null;
     // Elapsed time of program execution
-    private ElapsedTime period  = new ElapsedTime();
+    private ElapsedTime period = new ElapsedTime();
 
     /* Constructor */
-    public HardwareTest(){
+    public HardwareTest() {
 
     }
 
@@ -57,43 +48,35 @@ public class HardwareTest
 
         // Define and Initialize Motors
         // NOTE: names such as left_drive, left_arm, right_hand, etc. are configured on CS device
-        leftMotor   = hwMap.dcMotor.get("left_drive");
-        rightMotor  = hwMap.dcMotor.get("right_drive");
-        frontSensor = hwMap.ultrasonicSensor.get("front_sensor");
-//        armMotor    = hwMap.dcMotor.get("left_arm");
+        leftMotor = hwMap.dcMotor.get("left_drive");
+        rightMotor = hwMap.dcMotor.get("right_drive");
+        opticalDistanceSensor = hwMap.opticalDistanceSensor.get("od_sensor");
+
         leftMotor.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
         rightMotor.setDirection(DcMotor.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
+        opticalDistanceSensor.enableLed(false);
 
         // Set all motors to zero power
         leftMotor.setPower(0);
         rightMotor.setPower(0);
-//        armMotor.setPower(0);
 
         // Set all motors to run without encoders.
         // May want to use RUN_USING_ENCODERS if encoders are installed.
         leftMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         rightMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-//        armMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-//
-//        // Define and initialize ALL installed servos.
-//        leftClaw = hwMap.servo.get("left_hand");
-//        rightClaw = hwMap.servo.get("right_hand");
-//        leftClaw.setPosition(MID_SERVO);
-//        rightClaw.setPosition(MID_SERVO);
     }
 
     /***
-     *
      * waitForTick implements a periodic delay. However, this acts like a metronome with a regular
      * periodic tick.  This is used to compensate for varying processing times for each cycle.
      * The function looks at the elapsed cycle time, and sleeps for the remaining time interval.
      *
-     * @param periodMs  Length of wait cycle in mSec.
+     * @param periodMs Length of wait cycle in mSec.
      * @throws InterruptedException
      */
     public void waitForTick(long periodMs) throws InterruptedException {
 
-        long  remaining = periodMs - (long)period.milliseconds();
+        long remaining = periodMs - (long) period.milliseconds();
 
         // sleep for the remaining portion of the regular cycle period.
         if (remaining > 0)
