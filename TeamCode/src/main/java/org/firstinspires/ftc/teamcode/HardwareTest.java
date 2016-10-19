@@ -8,28 +8,18 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 /**
  * This is NOT an opmode.
  * <p>
- * This class can be used to define all the specific hardware for a single robot.
- * In this case that robot is a Pushbot.
- * See PushbotTeleopTank_Iterative and others classes starting with "Pushbot" for usage examples.
+ * This class can be used to define all the specific hardware for a single robot. These include all the motors, sensors, etc. that are connected
+ * to the robot in use.
  * <p>
- * This hardware class assumes the following device names have been configured on the robot:
- * Note:  All names are lower case and some have single spaces between words.
- * <p>
- * Motor channel:  Left  drive motor:        "left_drive"
- * Motor channel:  Right drive motor:        "right_drive"
- * Motor channel:  Manipulator drive motor:  "left_arm"
- * Servo channel:  Servo to open left claw:  "left_hand"
- * Servo channel:  Servo to open right claw: "right_hand"
+ * This hardware class assumes the following configured hardware componenets are connected and configured on the robot controller station device.
  */
 public class HardwareTest {
-    /* Public OpMode members. */
-
     // Declare components fields
-    public DcMotor leftMotor = null;
-    public DcMotor rightMotor = null;
-    public OpticalDistanceSensor opticalDistanceSensor = null;
-
-    /* local OpMode members. */
+    // They are outside any method so they can be accessed by the entire class)
+    // And they are unitialized because the initializing happens in the init method, which eventually gets called in the OpMode init method
+    public DcMotor leftMotor;
+    public DcMotor rightMotor;
+    public OpticalDistanceSensor opticalDistanceSensor;
 
     // Map of hardware components (configured on robot controller device)
     HardwareMap hwMap = null;
@@ -43,18 +33,18 @@ public class HardwareTest {
 
     /* Initialize standard Hardware interfaces. To be called ONCE when driver hits INIT */
     public void init(HardwareMap ahwMap) {
-        // Save reference to Hardware map
+        // Save reference to Hardware map (for performance)
         hwMap = ahwMap;
 
         // Define and Initialize Motors
-        // NOTE: names such as left_drive, left_arm, right_hand, etc. are configured on CS device
+        // NOTE: names such as left_drive, left_arm, etc. are configured on CS device
         leftMotor = hwMap.dcMotor.get("left_drive");
         rightMotor = hwMap.dcMotor.get("right_drive");
         opticalDistanceSensor = hwMap.opticalDistanceSensor.get("od_sensor");
 
-        leftMotor.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
-        rightMotor.setDirection(DcMotor.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
-        opticalDistanceSensor.enableLed(false);
+        leftMotor.setDirection(DcMotor.Direction.FORWARD); 	// Set to REVERSE if using AndyMark motors
+        rightMotor.setDirection(DcMotor.Direction.REVERSE);	// Set to FORWARD if using AndyMark motors
+        opticalDistanceSensor.enableLed(false);			// Disable LED on init
 
         // Set all motors to zero power
         leftMotor.setPower(0);
