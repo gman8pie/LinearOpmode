@@ -44,7 +44,7 @@ public class HardwareTest {
 
         leftMotor.setDirection(DcMotor.Direction.FORWARD); 	// Set to REVERSE if using AndyMark motors
         rightMotor.setDirection(DcMotor.Direction.REVERSE);	// Set to FORWARD if using AndyMark motors
-        opticalDistanceSensor.enableLed(false);			// Disable LED on init
+        opticalDistanceSensor.enableLed(false);			// Disable LED on program init
 
         // Set all motors to zero power
         leftMotor.setPower(0);
