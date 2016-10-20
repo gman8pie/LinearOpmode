@@ -48,7 +48,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 public class PushbotTeleopTank_Iterative extends OpMode {
 
     /* Declare OpMode members. */
-    private HardwareTest robot   = new HardwareTest(); // use the class created to define hardware
+    private HardwareTest robot   = new HardwareTest(); // Use the class created to define hardware
 
     /*
      * Code to run ONCE when the driver hits INIT
