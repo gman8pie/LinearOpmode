@@ -22,7 +22,7 @@ public class HardwareTest {
     public OpticalDistanceSensor opticalDistanceSensor;
 
     // Map of hardware components (configured on robot controller device)
-    HardwareMap hwMap = null;
+    HardwareMap hwMap;
     // Elapsed time of program execution
     private ElapsedTime period = new ElapsedTime();
 
