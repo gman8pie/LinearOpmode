@@ -88,14 +88,20 @@ public class PushbotTeleopTank_Iterative extends OpMode {
         double right;
 
         // Run wheels in tank mode (note: The joystick goes negative when pushed forwards, so negate it)
-        left = -gamepad1.left_stick_y;
-        right = -gamepad1.right_stick_y;
-        robot.leftMotor.setPower(left);
-        robot.rightMotor.setPower(right);
+//        left = -gamepad1.left_stick_y;
+//        right = -gamepad1.right_stick_y;
+//        robot.leftMotor.setPower(left);
+//        robot.rightMotor.setPower(right);
 
-        telemetry.addData("sensor", "%.2f", robot.opticalDistanceSensor.getLightDetected());
-        telemetry.addData("left", "%.2f", left);
-        telemetry.addData("right", "%.2f", right);
+//        telemetry.addData("sensor", "%.2f", robot.opticalDistanceSensor.getLightDetected());
+        telemetry.addData("irs sd thresh", robot.IRSSensor.getSignalDetectedThreshold());
+        telemetry.addData("irs mode", robot.IRSSensor.getMode());
+        telemetry.addData("irs angel", robot.IRSSensor.getAngle());
+        telemetry.addData("irs strength", robot.IRSSensor.getStrength());
+        telemetry.addData("irs indiv", robot.IRSSensor.getIndividualSensors());
+        telemetry.addData("irs i2c", robot.IRSSensor.getI2cAddress());
+//        telemetry.addData("left", "%.2f", left);
+//        telemetry.addData("right", "%.2f", right);
         updateTelemetry(telemetry);
     }
 

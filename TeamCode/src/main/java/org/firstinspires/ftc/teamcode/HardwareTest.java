@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.IrSeekerSensor;
 import com.qualcomm.robotcore.hardware.OpticalDistanceSensor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
@@ -20,6 +21,7 @@ public class HardwareTest {
     public DcMotor leftMotor;
     public DcMotor rightMotor;
     public OpticalDistanceSensor opticalDistanceSensor;
+    public IrSeekerSensor IRSSensor;
 
     // Map of hardware components (configured on robot controller device)
     HardwareMap hwMap;
@@ -38,22 +40,23 @@ public class HardwareTest {
 
         // Define and Initialize Motors
         // NOTE: names such as left_drive, left_arm, etc. are configured on CS device
-        leftMotor = hwMap.dcMotor.get("left_drive");
-        rightMotor = hwMap.dcMotor.get("right_drive");
-        opticalDistanceSensor = hwMap.opticalDistanceSensor.get("od_sensor");
+//        leftMotor = hwMap.dcMotor.get("left_drive");
+//        rightMotor = hwMap.dcMotor.get("right_drive");
+//        opticalDistanceSensor = hwMap.opticalDistanceSensor.get("od_sensor");
+        IRSSensor = hwMap.irSeekerSensor.get("IRS_Sensor");
 
-        leftMotor.setDirection(DcMotor.Direction.FORWARD); 	// Set to REVERSE if using AndyMark motors
-        rightMotor.setDirection(DcMotor.Direction.REVERSE);	// Set to FORWARD if using AndyMark motors
-        opticalDistanceSensor.enableLed(false);			// Disable LED on program init
-
+//        leftMotor.setDirection(DcMotor.Direction.FORWARD); 	// Set to REVERSE if using AndyMark motors
+//        rightMotor.setDirection(DcMotor.Direction.REVERSE);	// Set to FORWARD if using AndyMark motors
+//        opticalDistanceSensor.enableLed(false);			// Disable LED on program init
+//        IRSSensor.
         // Set all motors to zero power
-        leftMotor.setPower(0);
-        rightMotor.setPower(0);
+//        leftMotor.setPower(0);
+//        rightMotor.setPower(0);
 
         // Set all motors to run without encoders.
         // May want to use RUN_USING_ENCODERS if encoders are installed.
-        leftMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        rightMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+//        leftMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+//        rightMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
     }
 
     /***
