@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.hardware.DcMotor;
 
 @Autonomous(name = "Autonomy: Main", group = "Autonomy")
 @Disabled
@@ -38,8 +39,9 @@ public class AutonomyOpMain extends OpMode {
             turn 180deg in right direction
         End If
         */
-		
-		if (robotHardware.uSS.getUltrasonicLevels() < 21) {
+
+		/*
+		if (robotHardware.uSS.getUltrasonicLevel() < 21) {
 			
 			robotHardware.leftMotor.setDirection(DcMotor.Direction.REVERSE);
 			robotHardware.rightMotor.setDirection(DcMotor.Direction.REVERSE);
@@ -54,7 +56,7 @@ public class AutonomyOpMain extends OpMode {
 				robotHardware.leftMotor.setPower(0.75);
 				robotHardware.rightMotor.setPower(0.75);
 			}
-		}
+		}*/
 		
     }
 }
