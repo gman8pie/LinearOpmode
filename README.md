@@ -36,4 +36,7 @@ Kyyle Lam<br>
 Owen Engbretson<br>
 Tanner Santesson<br>
 
+# Resources
+[https://www.lucidchart.com/invitations/accept/2836251b-a42c-44ba-8f22-529883c48b81](TeamCode UML Diagram)
+
 Created 1:00 A.M. :)
