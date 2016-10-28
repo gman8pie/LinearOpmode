@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.Hardware;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.HardwareDevice;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 public class T_DCMotor extends T_Hardware {
@@ -18,6 +19,16 @@ public class T_DCMotor extends T_Hardware {
 
     public DcMotor getDcMotor() {
         return dcMotor;
+    }
+
+    public void moveWithPower(float power) {
+        dcMotor.setPower(power);
+    }
+
+//    @Override
+    public <T extends HardwareDevice> T getComponent(Class<T> tClass) {
+        return (T) getDcMotor();
+//        return getDcMotor();
     }
 
     @Override

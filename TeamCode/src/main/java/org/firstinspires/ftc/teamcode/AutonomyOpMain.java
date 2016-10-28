@@ -33,6 +33,10 @@ public class AutonomyOpMain extends OpMode {
          speed changes, all the sensor data reading, all of it happens heres
         */
 
+        for (int IMotor = 0; IMotor < robotHardware.hardwareDevicesMap.get("DC Motors").size(); IMotor++) {
+            DcMotor motor = robotHardware.hardwareDevicesMap.get("DC Motors").get(IMotor).getComponent().
+        }
+
         /*
         If ultraSonicSensorDetectionDistance < 21 inches Then
             robot go backwards x inches

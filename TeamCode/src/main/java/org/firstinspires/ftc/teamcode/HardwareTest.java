@@ -55,7 +55,6 @@ public class HardwareTest {
         hardwareDevicesMap.put("DC Motors", new ArrayList<T_Hardware>() {{
             add(new T_DCMotor("left_drive"));
             add(new T_DCMotor("right_drive"));
-            add(new T_UltrasonicSensor("us_sensor", false));
         }});
 
         initHWDevices(hardwareDevicesMap, hwMap);

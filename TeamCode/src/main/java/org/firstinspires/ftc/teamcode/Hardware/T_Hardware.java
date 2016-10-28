@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.Hardware;
 
+import com.qualcomm.robotcore.hardware.HardwareDevice;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 public abstract class T_Hardware {
@@ -14,6 +15,8 @@ public abstract class T_Hardware {
     public void setEnabled(boolean isEnabled) {
         this.isEnabled = isEnabled;
     }
+
+    public abstract HardwareDevice getComponent();
 
     public abstract void init(HardwareMap hwMap);
 
