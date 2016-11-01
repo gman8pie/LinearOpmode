@@ -35,20 +35,22 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
+import org.firstinspires.ftc.teamcode.Hardware.T_DCMotor;
+
 /**
- * This file provides basic Telop (driver controlled) driving for the robot.
+ * This file provides basic Telop (driver controlled) driving for the robotHardware.
  * <p>
  * This OpMode uses the hardware class in the same directory as this class, which is configured with the
  * proper hardware components in use.
  * <p>
- * This particular OpMode, for now, only allows driving of the robot using the left and right motors.
+ * This particular OpMode, for now, only allows driving of the robotHardware using the left and right motors.
  */
 
 @TeleOp(name = "Pushbot: Test", group = "Pushbot")
 public class PushbotTeleopTank_Iterative extends OpMode {
 
     /* Declare OpMode members. */
-    private HardwareTest robot   = new HardwareTest(); // Use the class created to define hardware
+    private HardwareTest robotHardware = new HardwareTest(); // Use the class created to define hardware
 
     /*
      * Code to run ONCE when the driver hits INIT
@@ -58,9 +60,9 @@ public class PushbotTeleopTank_Iterative extends OpMode {
         /* Initialize  the hardware variables.
          * The init() method of the hardware class does all the work here
          */
-        robot.init(hardwareMap);
+        robotHardware.init(hardwareMap);
 
-        // Send telemetry message to signify robot waiting;
+        // Send telemetry message to signify robotHardware waiting;
         telemetry.addData("Say", "Hello Driver");
         updateTelemetry(telemetry);
     }
@@ -84,16 +86,20 @@ public class PushbotTeleopTank_Iterative extends OpMode {
      */
     @Override
     public void loop() {
-        double left;
-        double right;
+        float motorGPArgs[][] = {{gamepad1.left_stick_y, -1}, {gamepad1.right_stick_y, -1}};
+
+        for (int IMotor = 0; IMotor < robotHardware.hardwareDevicesMap.get("DC Motors").size(); IMotor++) {
+            T_DCMotor motor = (T_DCMotor) robotHardware.hardwareDevicesMap.get("DC Motors").get(IMotor);
+            motor.controlWithGP(motorGPArgs[IMotor][0], motorGPArgs[IMotor][1]);
+        }
 
         // Run wheels in tank mode (note: The joystick goes negative when pushed forwards, so negate it)
 //        left = -gamepad1.left_stick_y;
 //        right = -gamepad1.right_stick_y;
-//        robot.leftMotor.setPower(-gamepad1.left_stick_y);
-//        robot.rightMotor.setPower(right);
+//        robotHardware.leftMotor.setPower(-gamepad1.left_stick_y);
+//        robotHardware.rightMotor.setPower(right);
 
-//        telemetry.addData("sensor", "%.2f", robot.opticalDistanceSensor.getLightDetected());
+//        telemetry.addData("sensor", "%.2f", robotHardware.opticalDistanceSensor.getLightDetected());
 //        telemetry.addData("left", "%.2f", left);
 //        telemetry.addData("right", "%.2f", right);
         updateTelemetry(telemetry);

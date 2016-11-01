@@ -35,9 +35,11 @@ public class AutonomyOpMain extends OpMode {
          speed changes, all the sensor data reading, all of it happens heres
         */
 
+        float motorGPArgs[][] = {{gamepad1.left_stick_y, -1}, {gamepad1.right_stick_y, -1}};
+
         for (int IMotor = 0; IMotor < robotHardware.hardwareDevicesMap.get("DC Motors").size(); IMotor++) {
             T_DCMotor motor = (T_DCMotor) robotHardware.hardwareDevicesMap.get("DC Motors").get(IMotor);
-            motor.controlWithGP(gamepad1.left_stick_y, -1);
+            motor.controlWithGP(motorGPArgs[IMotor][0], motorGPArgs[IMotor][1]);
         }
 
 //        left = -gamepad1.left_stick_y;
