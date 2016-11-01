@@ -1,7 +1,9 @@
 package org.firstinspires.ftc.teamcode.Hardware;
 
+import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareDevice;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.UltrasonicSensor;
 
 public abstract class T_Hardware {
 
@@ -16,8 +18,13 @@ public abstract class T_Hardware {
         this.isEnabled = isEnabled;
     }
 
-    public abstract HardwareDevice getComponent();
+//    public abstract HardwareDevice getComponent();
 
     public abstract void init(HardwareMap hwMap);
+
+//    public DcMotor getDcMotor() { return null; }
+//    public UltrasonicSensor getUltrasonicSensor() { return null; }
+//
+//    public void controlWithGP() {}
 
 }

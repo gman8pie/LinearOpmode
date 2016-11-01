@@ -17,14 +17,15 @@ public class T_UltrasonicSensor extends T_Hardware {
         this(name, true);
     }
 
+//    @Override
     public UltrasonicSensor getUltrasonicSensor() {
         return ultrasonicSensor;
     }
 
-    @Override
-    public HardwareDevice getComponent() {
-        return getUltrasonicSensor();
-    }
+//    @Override
+//    public HardwareDevice getComponent() {
+//        return getUltrasonicSensor();
+//    }
 
     @Override
     public void init(HardwareMap hwMap) {

@@ -5,6 +5,8 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
+import org.firstinspires.ftc.teamcode.Hardware.T_DCMotor;
+
 @Autonomous(name = "Autonomy: Main", group = "Autonomy")
 @Disabled
 // TODO: Enable
@@ -34,8 +36,14 @@ public class AutonomyOpMain extends OpMode {
         */
 
         for (int IMotor = 0; IMotor < robotHardware.hardwareDevicesMap.get("DC Motors").size(); IMotor++) {
-            DcMotor motor = robotHardware.hardwareDevicesMap.get("DC Motors").get(IMotor).getComponent().
+            T_DCMotor motor = (T_DCMotor) robotHardware.hardwareDevicesMap.get("DC Motors").get(IMotor);
+            motor.controlWithGP(gamepad1.left_stick_y, -1);
         }
+
+//        left = -gamepad1.left_stick_y;
+//        right = -gamepad1.right_stick_y;
+//        robot.leftMotor.setPower(-gamepad1.left_stick_y);
+//        robot.rightMotor.setPower(right);
 
         /*
         If ultraSonicSensorDetectionDistance < 21 inches Then
