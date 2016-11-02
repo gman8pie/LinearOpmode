@@ -86,7 +86,7 @@ public class PushbotTeleopTank_Iterative extends OpMode {
      */
     @Override
     public void loop() {
-        float motorGPArgs[][] = {{gamepad1.left_stick_y, -1}, {gamepad1.right_stick_y, -1}};
+        float motorGPArgs[][] = {{gamepad1.right_stick_y, 1}, {gamepad1.left_stick_y, -1}};
 
         for (int IMotor = 0; IMotor < robotHardware.hardwareDevicesMap.get("DC Motors").size(); IMotor++) {
             T_DCMotor motor = (T_DCMotor) robotHardware.hardwareDevicesMap.get("DC Motors").get(IMotor);
