@@ -8,12 +8,12 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import org.firstinspires.ftc.teamcode.Hardware.T_DCMotor;
 
 @Autonomous(name = "Autonomy: Main", group = "Autonomy")
-@Disabled
+//@Disabled
 // TODO: Enable
 public class AutonomyOpMain extends OpMode {
     // Define Pushbot hardware; should be changed to custom hardware configuration class in future
     private HardwareTest robotHardware = new HardwareTest();
-	
+	private boolean isAutonomy = true;
 	
     /*
      Runs ONCE as autonomy is initialized
@@ -32,14 +32,32 @@ public class AutonomyOpMain extends OpMode {
     public void loop() {
         /**
          Repeatedly running, this is where the meat of the autonomous operations goes. All the motor
-         speed changes, all the sensor data reading, all of it happens heres
+         speed changes, all the sensor data reading, all of it happens here:
         */
 
-        float motorGPArgs[][] = {{gamepad1.left_stick_y, -1}, {gamepad1.right_stick_y, -1}};
+        final int MOTOR_MULTS[] = {-1, -1};
 
-        for (int IMotor = 0; IMotor < robotHardware.hardwareDevicesMap.get("DC Motors").size(); IMotor++) {
-            T_DCMotor motor = (T_DCMotor) robotHardware.hardwareDevicesMap.get("DC Motors").get(IMotor);
-            motor.controlWithGP(motorGPArgs[IMotor][0], motorGPArgs[IMotor][1]);
+        if (isAutonomy) {
+//            for (int IMotor = 0; IMotor < robotHardware.hardwareDevicesMap.get("DC Motors").size(); IMotor++) {
+//                T_DCMotor motor = (T_DCMotor) robotHardware.hardwareDevicesMap.get("DC Motors").get(IMotor);
+//                motor.move(MOTOR_MULTS[IMotor], 3000);
+//            }
+
+            T_DCMotor motor1 = (T_DCMotor) robotHardware.hardwareDevicesMap.get("DC Motors").get(0);
+            T_DCMotor motor2 = (T_DCMotor) robotHardware.hardwareDevicesMap.get("DC Motors").get(1);
+            motor1.getDcMotor().setPower(1);
+            motor2.getDcMotor().setPower(-1);
+
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            motor1.getDcMotor().setPower(0);
+            motor2.getDcMotor().setPower(0);
+
+            isAutonomy = false;
         }
 
 //        left = -gamepad1.left_stick_y;
@@ -71,6 +89,14 @@ public class AutonomyOpMain extends OpMode {
 				robotHardware.rightMotor.setPower(0.75);
 			}
 		}*/
+
+        telemetry.addData("isAutonomy", isAutonomy);
+        telemetry.update();
 		
+    }
+
+    @Override
+    public void stop() {
+        super.stop();
     }
 }

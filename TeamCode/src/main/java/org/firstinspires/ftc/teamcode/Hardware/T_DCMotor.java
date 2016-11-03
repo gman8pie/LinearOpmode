@@ -17,25 +17,23 @@ public class T_DCMotor extends T_Hardware {
         this(name, true);
     }
 
-//    @Override
     public DcMotor getDcMotor() {
         return dcMotor;
     }
 
-//    @Override
     public void controlWithGP(double gamePad, double mult) {
         getDcMotor().setPower(mult * gamePad);
     }
 
-    public void moveWithPower(float power) {
+    public void move(float power, long duration) {
         dcMotor.setPower(power);
+        try {
+            Thread.sleep(duration);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        dcMotor.setPower(0);
     }
-
-//    @Override
-//    public <T extends HardwareDevice> T getComponent(Class<T> tClass) {
-//        return (T) getDcMotor();
-////        return getDcMotor();
-//    }
 
     @Override
     public void init(HardwareMap hwMap) {

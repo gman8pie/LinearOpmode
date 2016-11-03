@@ -86,11 +86,11 @@ public class PushbotTeleopTank_Iterative extends OpMode {
      */
     @Override
     public void loop() {
-        float motorGPArgs[][] = {{gamepad1.right_stick_y, 1}, {gamepad1.left_stick_y, -1}};
+        final float MOTOR_GP_ARGS[][] = {{gamepad1.left_stick_y, 1}, {gamepad1.right_stick_y, -1}};
 
         for (int IMotor = 0; IMotor < robotHardware.hardwareDevicesMap.get("DC Motors").size(); IMotor++) {
             T_DCMotor motor = (T_DCMotor) robotHardware.hardwareDevicesMap.get("DC Motors").get(IMotor);
-            motor.controlWithGP(motorGPArgs[IMotor][0], motorGPArgs[IMotor][1]);
+            motor.controlWithGP(MOTOR_GP_ARGS[IMotor][0], MOTOR_GP_ARGS[IMotor][1]);
         }
 
         // Run wheels in tank mode (note: The joystick goes negative when pushed forwards, so negate it)
